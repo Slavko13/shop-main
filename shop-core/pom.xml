@@ -13,8 +13,11 @@
     <name>shop-core</name>
     <description>Demo project for Spring Boot</description>
 
+    <packaging>pom</packaging>
+
     <modules>
         <module>database</module>
+        <module>base</module>
     </modules>
 
 
@@ -22,5 +25,14 @@
         <java.version>11</java.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ru.shop</groupId>
+                <artifactId>database</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
