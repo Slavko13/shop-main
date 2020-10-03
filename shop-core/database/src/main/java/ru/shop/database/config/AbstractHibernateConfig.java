@@ -19,7 +19,7 @@ import java.util.Properties;
 @EnableJpaRepositories(basePackages = "ru.shop.dbtools.repositories", entityManagerFactoryRef = "entityManagerFactoryBean")
 public abstract class AbstractHibernateConfig {
 
-    private static final String ENTITY_PACKAGE = "ru.converter.oauthdb.domains";
+    private static final String ENTITY_PACKAGE = "ru.shop.dbtools.models";
 
     private static final String JDBC_URL = "jdbc.url";
     private static final String JDBC_USERNAME = "jdbc.username";
