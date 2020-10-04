@@ -1,4 +1,4 @@
-package ru.shop.dbtools.dto;
+package ru.shop.accountservice.dto;
 
 
 import lombok.Data;

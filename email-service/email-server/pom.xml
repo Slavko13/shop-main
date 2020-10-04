@@ -8,9 +8,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>shop-api</artifactId>
+	<artifactId>email-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>shop-api</name>
+	<name>email-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -24,6 +24,18 @@
 		</dependency>
 
 		<dependency>
+			<groupId>ru.shop</groupId>
+			<artifactId>rabbit-mq</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ru.shop</groupId>
+			<artifactId>base</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -34,24 +46,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>database</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>db-tools</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>base</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
-
 
 	<build>
 		<plugins>
