@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>shop-main</artifactId>
+		<artifactId>shop-core</artifactId>
 		<groupId>ru.shop</groupId>
-		<version>1.0-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<artifactId>shop-api</artifactId>
+	<groupId>ru.shop</groupId>
+	<artifactId>rabbit-mq</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>shop-api</name>
+	<name>rabbit-mq</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -20,7 +20,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 
 		<dependency>
@@ -35,36 +35,9 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>database</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>db-tools</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>base</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>ru.shop</groupId>
-			<artifactId>email-client</artifactId>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>
