@@ -2,8 +2,11 @@ package ru.shop.emailclient.service;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import ru.shop.emailclient.dto.EmailDTO;
 
+
+@Service
 public class EmailClientServiceImpl implements EmailClientService {
 
     @Value("#{getEmailFromShopService.name}")

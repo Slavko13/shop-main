@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="account-service" />
+        <module name="security" />
         <module name="email-server" />
         <module name="shop-api" />
         <module name="email-client" />
@@ -26,6 +27,7 @@
       <module name="email-client" options="-parameters" />
       <module name="email-server" options="-parameters" />
       <module name="rabbit-mq" options="-parameters" />
+      <module name="security" options="-parameters" />
       <module name="shop-api" options="-parameters" />
       <module name="shop-core" options="-parameters" />
       <module name="shop-main" options="-parameters" />

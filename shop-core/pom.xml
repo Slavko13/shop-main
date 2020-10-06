@@ -19,6 +19,7 @@
         <module>database</module>
         <module>base</module>
         <module>rabbit-mq</module>
+        <module>security</module>
     </modules>
 
 

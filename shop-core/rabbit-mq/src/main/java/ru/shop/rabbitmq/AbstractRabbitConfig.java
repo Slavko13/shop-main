@@ -68,6 +68,7 @@ public abstract class AbstractRabbitConfig {
 
     @Bean
     public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory) {
+
         RabbitTemplate rabbitTemplate = new RabbitTemplate();
         rabbitTemplate.setConnectionFactory(connectionFactory);
         return rabbitTemplate;
