@@ -1,0 +1,6 @@
+ru\shop\emailserver\config\AppConfig.class
+ru\shop\emailserver\config\RabbitConfig.class
+ru\shop\emailserver\service\EmailService.class
+ru\shop\emailserver\EmailServerApplication.class
+ru\shop\emailserver\consumer\EmailConsumer.class
+ru\shop\emailserver\service\EmailServiceImpl.class
