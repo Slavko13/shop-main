@@ -1,4 +1,5 @@
 // Main js file
-// see more: https://github.com/vedees/webpack-template/blob/master/README.md#import-js-files
 
-console.log('its work')
+import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
