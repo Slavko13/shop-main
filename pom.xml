@@ -17,6 +17,9 @@
         <module>db-tools</module>
         <module>shop-core</module>
         <module>shop-api</module>
+        <module>account-service</module>
+        <module>email-service/email-server</module>
+        <module>email-service/email-client</module>
     </modules>
 
     <properties>
@@ -34,6 +37,12 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -41,6 +50,12 @@
             <dependency>
                 <groupId>ru.shop</groupId>
                 <artifactId>shop-core</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.shop</groupId>
+                <artifactId>security</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
@@ -61,9 +76,20 @@
                 <artifactId>base</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
+
+            <dependency>
+                <groupId>ru.shop</groupId>
+                <artifactId>rabbit-mq</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.shop</groupId>
+                <artifactId>email-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
-
-
 
 </project>
