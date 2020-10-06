@@ -15,9 +15,9 @@ services:
       POSTGRES_DB: test_shop
       PGDATA: /var/lib/postgresql/data/pgdata
 
-  rabbitmq:
+  rabbitmq1:
     image: rabbitmq:3-management-alpine
-    container_name: rabbitmq
+    container_name: rabbitmq1
     environment:
       RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
       RABBITMQ_DEFAULT_USER: user
