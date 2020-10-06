@@ -1,7 +1,7 @@
 /* Build config:
   ========================================================================== */
 
-// Source: https://github.com/survivejs/webpack-merge
+
 const { merge } = require('webpack-merge')
 // Base config
 const baseWebpackConfig = require('./webpack.base.conf')

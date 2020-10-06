@@ -8,6 +8,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
+
+
+
 // Main const
 const PATHS = {
   src: path.join(__dirname, '../src'),
@@ -16,7 +19,6 @@ const PATHS = {
 }
 
 // Pages const for HtmlWebpackPlugin
-// see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 // const PAGES_DIR = PATHS.src
 const PAGES_DIR = `${PATHS.src}/pug/pages`
 const PAGES = fs
@@ -170,10 +172,8 @@ module.exports = {
 
     /*
       Automatic creation any html pages (Don't forget to RERUN dev server!)
-      See more:
-      https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
-      Best way to create pages:
-      https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
+
+      
     */
     ...PAGES.map(
       page =>
