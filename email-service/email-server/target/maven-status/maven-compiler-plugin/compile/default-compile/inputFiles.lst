@@ -1,6 +1,6 @@
-D:\InternetShop\shop-main\email-service\email-server\src\main\java\ru\shop\emailserver\service\EmailServiceImpl.java
-D:\InternetShop\shop-main\email-service\email-server\src\main\java\ru\shop\emailserver\consumer\EmailConsumer.java
-D:\InternetShop\shop-main\email-service\email-server\src\main\java\ru\shop\emailserver\service\EmailService.java
-D:\InternetShop\shop-main\email-service\email-server\src\main\java\ru\shop\emailserver\config\RabbitConfig.java
-D:\InternetShop\shop-main\email-service\email-server\src\main\java\ru\shop\emailserver\config\AppConfig.java
-D:\InternetShop\shop-main\email-service\email-server\src\main\java\ru\shop\emailserver\EmailServerApplication.java
+/home/slavko/projects/sources/shop-main/email-service/email-server/src/main/java/ru/shop/emailserver/EmailServerApplication.java
+/home/slavko/projects/sources/shop-main/email-service/email-server/src/main/java/ru/shop/emailserver/consumer/EmailConsumer.java
+/home/slavko/projects/sources/shop-main/email-service/email-server/src/main/java/ru/shop/emailserver/service/EmailService.java
+/home/slavko/projects/sources/shop-main/email-service/email-server/src/main/java/ru/shop/emailserver/config/AppConfig.java
+/home/slavko/projects/sources/shop-main/email-service/email-server/src/main/java/ru/shop/emailserver/service/EmailServiceImpl.java
+/home/slavko/projects/sources/shop-main/email-service/email-server/src/main/java/ru/shop/emailserver/config/RabbitConfig.java

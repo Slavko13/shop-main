@@ -1,5 +1,5 @@
-ru\shop\emailclient\dto\EmailDTO.class
-ru\shop\emailclient\config\EmailServiceQueueConfig.class
-ru\shop\emailclient\service\EmailClientService.class
-ru\shop\emailclient\dto\EmailDTO$EmailDTOBuilder.class
-ru\shop\emailclient\service\EmailClientServiceImpl.class
+ru/shop/emailclient/service/EmailClientService.class
+ru/shop/emailclient/service/EmailClientServiceImpl.class
+ru/shop/emailclient/config/EmailServiceQueueConfig.class
+ru/shop/emailclient/dto/EmailDTO$EmailDTOBuilder.class
+ru/shop/emailclient/dto/EmailDTO.class

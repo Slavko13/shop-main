@@ -6,6 +6,7 @@
 		<artifactId>shop-main</artifactId>
 		<groupId>ru.shop</groupId>
 		<version>1.0-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
 	<groupId>ru.shop</groupId>
