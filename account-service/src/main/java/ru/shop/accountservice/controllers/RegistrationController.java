@@ -7,6 +7,7 @@ import ru.shop.accountservice.dto.RegistrationDTO;
 import ru.shop.accountservice.service.RegistrationService;
 
 @RestController
+@RequestMapping("/registration")
 @CrossOrigin(maxAge = 3600)
 public class RegistrationController {
 
@@ -23,7 +24,7 @@ public class RegistrationController {
 //        registrationService.registration(registrationDTO);
 //    }
 
-    @PostMapping("/registration")
+    @PostMapping("/newUser")
     @CrossOrigin
     public String registrateUser(@ModelAttribute RegistrationDTO registrationDTO) {
         registrationService.registration(registrationDTO);
