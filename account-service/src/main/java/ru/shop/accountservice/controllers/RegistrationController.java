@@ -2,14 +2,12 @@ package ru.shop.accountservice.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.shop.accountservice.dto.RegistrationDTO;
 import ru.shop.accountservice.service.RegistrationService;
 
 @RestController
+@CrossOrigin(maxAge = 3600)
 public class RegistrationController {
 
     private final RegistrationService registrationService;
@@ -26,6 +24,7 @@ public class RegistrationController {
 //    }
 
     @PostMapping("/registration")
+    @CrossOrigin
     public String registrateUser(@ModelAttribute RegistrationDTO registrationDTO) {
         registrationService.registration(registrationDTO);
         return "redirect:/login";
