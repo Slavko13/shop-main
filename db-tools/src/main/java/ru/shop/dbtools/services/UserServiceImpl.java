@@ -6,6 +6,8 @@ import ru.shop.base.exceptions.NotFoundException;
 import ru.shop.dbtools.models.user.User;
 import ru.shop.dbtools.repositories.UserRepo;
 
+import java.util.UUID;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,6 +29,18 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User findByEmail(String email) {
         return userRepo.findByEmail(email).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findByEmail.NotFound}"));
+    }
+
+    @Override
+    @Transactional
+    public void deleteUserByEmail(String email) {
+        userRepo.deleteUserByEmail(email);
+    }
+
+    @Override
+    @Transactional
+    public User findUserById(UUID userId) {
+        return userRepo.findById(userId).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findById.NotFound}") );
     }
 
     @Override

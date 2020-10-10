@@ -14,6 +14,6 @@ public interface UserRepo extends CrudRepository<User, UUID> {
     Optional<User> findByEmail(String email);
     boolean existsByEmail(String email);
     boolean existsByPhoneNumber(String phoneNumber);
-
+    void deleteUserByEmail(String email);
 
 }

@@ -1,7 +1,10 @@
 package ru.shop.accountservice.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ru.shop.accountservice.dto.ConfirmCodeDTO;
 import ru.shop.accountservice.dto.RegistrationDTO;
 import ru.shop.accountservice.utils.EmailUtils;
 import ru.shop.base.exceptions.BadRequestException;
@@ -18,7 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-
+@Slf4j
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
 
@@ -73,7 +76,30 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     @Override
-    public void confirm(UUID confirmCode, String login) {
+    @Transactional
+    public void confirm(ConfirmCodeDTO confirmCodeDTO) {
+
+
+        ConfirmCode code = confirmCodeService.findByCode(confirmCodeDTO.getConfirmCode());
+        if (code == null || !code.getAction().equals(ConfirmCode.Action.REGISTRATION) ) {
+            throw new BadRequestException("{RegistrationServiceImpl.confirm.notValid}");
+        }
+
+        try {
+            User user = userService.findUserById(confirmCodeDTO.getUserId());
+            user.setStatus(Status.ACTIVE);
+            userService.saveUser(user);
+        }
+        catch (Exception ex) {
+            throw new InternalServerException("{RegistrationServiceImpl.confirm.failedConfirm}", ex);
+        }
+
+        try {
+            confirmCodeService.deleteByCode(confirmCodeDTO.getConfirmCode());
+        }
+        catch (Exception ex) {
+            log.error("Failed remove confirmCode: ", ex);
+        }
 
     }
 
