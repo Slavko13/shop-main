@@ -1,5 +1,6 @@
 /home/slavko/projects/sources/shop-main/account-service/src/main/java/ru/shop/accountservice/config/RabbitConfig.java
 /home/slavko/projects/sources/shop-main/account-service/src/main/java/ru/shop/accountservice/service/RegistrationServiceImpl.java
+/home/slavko/projects/sources/shop-main/account-service/src/main/java/ru/shop/accountservice/dto/ConfirmCodeDTO.java
 /home/slavko/projects/sources/shop-main/account-service/src/main/java/ru/shop/accountservice/config/AppConfig.java
 /home/slavko/projects/sources/shop-main/account-service/src/main/java/ru/shop/accountservice/controllers/RegistrationController.java
 /home/slavko/projects/sources/shop-main/account-service/src/main/java/ru/shop/accountservice/dto/RegistrationDTO.java

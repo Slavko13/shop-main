@@ -12,7 +12,7 @@ public class EmailUtils {
                 .messageTo(confirmCode.getUser().getEmail())
                 .template(confirmCode.getAction().name().toLowerCase())
                 .subject("Подтверждение регистрации на сайте")
-                .content(Map.of("userUUID", confirmCode.getUser().getId(),
+                .content(Map.of("userId", confirmCode.getUser().getId(),
                         "confirmCode", confirmCode.getConfirmCode()))
                 .build();
     }

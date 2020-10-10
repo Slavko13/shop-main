@@ -1,5 +1,6 @@
 package ru.shop.emailserver.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -18,10 +19,14 @@ import javax.mail.internet.MimeMessage;
 
 
 @Service
+@Slf4j
 public class EmailServiceImpl implements EmailService {
 
     @Value("${spring.mail.username}")
     private String username;
+
+    @Value("${frontend.url}")
+    private String frontendUrl;
 
     private final JavaMailSender javaMailSender;
     private final ITemplateEngine emailTemplateEngine;
@@ -38,8 +43,9 @@ public class EmailServiceImpl implements EmailService {
             final Context ctx = new Context();
             if(emailDTO.getContent() !=  null && !emailDTO.getContent().isEmpty()) {
                 emailDTO.getContent().forEach(ctx::setVariable);
+                ctx.setVariable("frontendUrl", frontendUrl);
             }
-
+            log.info(emailDTO.getContent().toString());
             String htmlContent = this.emailTemplateEngine.process(emailDTO.getTemplate(), ctx);
 
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();

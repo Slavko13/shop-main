@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<a th:href="@{http://localhost:8084/registration/confirm/{confirmCode}/{userUUID}(confirmCode=${confirmCode}, userUUID=${userUUID})}">Подтвердите регистрацию</a>
-
+<!--<a th:href="@{{frontendUrl}/registration/confirm?confirmcode={confirmCode}{userParam}{userId}(confirmCode=${confirmCode}, frontendUrl=${frontendUrl}, userId=${userId}), userParam='&userId='}">Подтвердите регистрацию</a>-->
+<a th:href="@{${frontendUrl}+ '/registration/confirm'(userId=${userId}, confirmCode=${confirmCode})}">Подтвердите регистрацию</a>
 </body>
 </html>
