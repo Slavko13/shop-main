@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes: 
+      - /var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 13
+      POSTGRES_DB: test_shop
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+  rabbitmq1:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: 13
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - 5672:5672
+      - 15672:15672
+ 

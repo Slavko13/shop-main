@@ -20,6 +20,7 @@
         <module>base</module>
         <module>rabbit-mq</module>
         <module>security</module>
+        <module>web</module>
     </modules>
 
 
