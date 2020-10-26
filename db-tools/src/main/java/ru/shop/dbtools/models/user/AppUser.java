@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class User {
+public class AppUser {
 
     @Id
     @GenericGenerator(name = "id", strategy = "uuid2")

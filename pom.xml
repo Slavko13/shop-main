@@ -20,6 +20,8 @@
         <module>account-service</module>
         <module>email-service/email-server</module>
         <module>email-service/email-client</module>
+        <module>oauth-server</module>
+
     </modules>
 
     <properties>
@@ -55,6 +57,12 @@
 
             <dependency>
                 <groupId>ru.shop</groupId>
+                <artifactId>oauth-server</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.shop</groupId>
                 <artifactId>security</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
@@ -68,6 +76,12 @@
             <dependency>
                 <groupId>ru.shop</groupId>
                 <artifactId>database</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ru.shop</groupId>
+                <artifactId>web</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 

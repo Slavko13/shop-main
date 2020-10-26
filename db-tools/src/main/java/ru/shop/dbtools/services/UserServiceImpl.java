@@ -3,7 +3,7 @@ package ru.shop.dbtools.services;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.shop.base.exceptions.NotFoundException;
-import ru.shop.dbtools.models.user.User;
+import ru.shop.dbtools.models.user.AppUser;
 import ru.shop.dbtools.repositories.UserRepo;
 
 import java.util.UUID;
@@ -21,13 +21,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void saveUser(User user) {
-        userRepo.save(user);
+    public void saveUser(AppUser appUser) {
+        userRepo.save(appUser);
     }
 
     @Override
     @Transactional
-    public User findByEmail(String email) {
+    public AppUser findByEmail(String email) {
         return userRepo.findByEmail(email).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findByEmail.NotFound}"));
     }
 
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User findUserById(UUID userId) {
+    public AppUser findUserById(UUID userId) {
         return userRepo.findById(userId).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findById.NotFound}") );
     }
 
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User findByPhoneNumber(String phoneNumber) {
+    public AppUser findByPhoneNumber(String phoneNumber) {
         return userRepo.findByPhoneNumber(phoneNumber).orElseThrow(() -> new NotFoundException("{UserServiceImpl.findByPhoneNumber.NotFound}")) ;
     }
 

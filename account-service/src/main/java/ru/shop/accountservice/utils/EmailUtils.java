@@ -9,10 +9,10 @@ public class EmailUtils {
 
     public static EmailDTO createEmailToSend(ConfirmCode confirmCode) {
         return EmailDTO.builder()
-                .messageTo(confirmCode.getUser().getEmail())
+                .messageTo(confirmCode.getAppUser().getEmail())
                 .template(confirmCode.getAction().name().toLowerCase())
                 .subject("Подтверждение регистрации на сайте")
-                .content(Map.of("userId", confirmCode.getUser().getId(),
+                .content(Map.of("userId", confirmCode.getAppUser().getId(),
                         "confirmCode", confirmCode.getConfirmCode()))
                 .build();
     }

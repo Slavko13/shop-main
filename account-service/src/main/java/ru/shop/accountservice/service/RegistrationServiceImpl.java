@@ -10,8 +10,9 @@ import ru.shop.accountservice.utils.EmailUtils;
 import ru.shop.base.exceptions.BadRequestException;
 import ru.shop.base.exceptions.InternalServerException;
 import ru.shop.dbtools.models.ConfirmCode;
+import ru.shop.dbtools.models.user.AppUser;
+import ru.shop.dbtools.models.user.Role;
 import ru.shop.dbtools.models.user.Status;
-import ru.shop.dbtools.models.user.User;
 import ru.shop.dbtools.services.ConfirmCodeService;
 import ru.shop.dbtools.services.UserService;
 import ru.shop.emailclient.dto.EmailDTO;
@@ -41,6 +42,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void registration(RegistrationDTO registrationDTO) {
+
         boolean emailBusy = userService.existsByEmail(registrationDTO.getEmail());
         boolean phoneNumber = userService.existsByPhoneNumber(registrationDTO.getPhoneNumber());
 
@@ -54,7 +56,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
 
         try {
-            User user = User.builder()
+            AppUser appUser = AppUser.builder()
                     .id(UUID.randomUUID())
                     .firstName(registrationDTO.getFirstName())
                     .lastName(registrationDTO.getLastName())
@@ -62,11 +64,11 @@ public class RegistrationServiceImpl implements RegistrationService {
                     .phoneNumber(registrationDTO.getPhoneNumber())
                     .password(passwordEncoder.encode(registrationDTO.getPassword()))
                     .status(Status.NOT_ACTIVE)
-                    //.role(new Role("ROLE_GUEST"))
+                    .role(new Role("ROLE_GUEST"))
                     .build();
-            userService.saveUser(user);
+            userService.saveUser(appUser);
 
-            ConfirmCode confirmCode  = confirmCodeService.prepareAndSave(user, ConfirmCode.Action.REGISTRATION);
+            ConfirmCode confirmCode  = confirmCodeService.prepareAndSave(appUser, ConfirmCode.Action.REGISTRATION);
             EmailDTO emailDTO = EmailUtils.createEmailToSend(confirmCode);
             emailClientService.sendEmailFromRegistration(emailDTO);
         }
@@ -86,9 +88,9 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
 
         try {
-            User user = userService.findUserById(confirmCodeDTO.getUserId());
-            user.setStatus(Status.ACTIVE);
-            userService.saveUser(user);
+            AppUser appUser = userService.findUserById(confirmCodeDTO.getUserId());
+            appUser.setStatus(Status.ACTIVE);
+            userService.saveUser(appUser);
         }
         catch (Exception ex) {
             throw new InternalServerException("{RegistrationServiceImpl.confirm.failedConfirm}", ex);

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.shop.base.exceptions.NotFoundException;
 import ru.shop.dbtools.models.ConfirmCode;
-import ru.shop.dbtools.models.user.User;
+import ru.shop.dbtools.models.user.AppUser;
 import ru.shop.dbtools.repositories.ConfirmCodeRepo;
 
 import java.util.UUID;
@@ -20,11 +20,11 @@ public class ConfirmCodeServiceImpl implements ConfirmCodeService {
 
     @Override
     @Transactional
-    public ConfirmCode prepareAndSave(User user, ConfirmCode.Action action) {
+    public ConfirmCode prepareAndSave(AppUser appUser, ConfirmCode.Action action) {
         ConfirmCode confirmCode =  ConfirmCode.builder()
                 .action(action)
                 .confirmCode(UUID.randomUUID())
-                .user(user)
+                .appUser(appUser)
                 .build();
 
         return confirmCodeRepo.save(confirmCode);
