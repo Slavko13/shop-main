@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.shop.dbtools.models.user.User;
+import ru.shop.dbtools.models.user.AppUser;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -27,7 +27,7 @@ public class ConfirmCode {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private AppUser appUser;
 
     @Column(name = "user_id", nullable = false, insertable=false, updatable=false)
     private UUID userId;

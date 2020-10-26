@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LoginDTO {
 
-    private String PhoneNumberOrEmail;
+    private String phoneNumberOrEmail;
     private String password;
 
 }

@@ -7,7 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.shop.dbtools.models.user.AuthoritiesEnum;
 import ru.shop.dbtools.models.user.Status;
-import ru.shop.dbtools.models.user.User;
+import ru.shop.dbtools.models.user.AppUser;
 
 import java.util.Collection;
 import java.util.Set;
@@ -22,11 +22,11 @@ public class UserPrincipal implements UserDetails {
     private final Set<GrantedAuthority> authorities;
     private final boolean enabled;
 
-    public UserPrincipal(User user) {
-        this.password = user.getPassword();
-        this.username = user.getEmail();
-        this.authorities = user.getRole().getAuthorities().stream().map(this::getGrantedAuthority).collect(Collectors.toSet());
-        this.enabled = user.getStatus().equals(Status.ACTIVE);
+    public UserPrincipal(AppUser appUser) {
+        this.password = appUser.getPassword();
+        this.username = appUser.getEmail();
+        this.authorities = appUser.getRole().getAuthorities().stream().map(this::getGrantedAuthority).collect(Collectors.toSet());
+        this.enabled = appUser.getStatus().equals(Status.ACTIVE);
     }
 
     private SimpleGrantedAuthority getGrantedAuthority(AuthoritiesEnum authority) {

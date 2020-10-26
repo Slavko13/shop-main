@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 import ru.shop.accountservice.dto.ConfirmCodeDTO;
 import ru.shop.accountservice.dto.RegistrationDTO;
@@ -30,6 +31,7 @@ public class RegistrationController {
         registrationService.registration(registrationDTO);
     }
 
+
     @PostMapping("/newUser")
     @CrossOrigin
     public ResponseEntity registrateUser(@RequestBody RegistrationDTO registrationDTO) {
@@ -38,6 +40,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/confirm")
+    @CrossOrigin
     public ResponseEntity confirmEmail(@RequestBody ConfirmCodeDTO confirmCodeDTO) {
         registrationService.confirm(confirmCodeDTO);
         return new ResponseEntity<>(HttpStatus.OK);

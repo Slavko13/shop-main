@@ -1,1 +1,2 @@
 /home/slavko/projects/sources/shop-main/shop-core/security/src/main/java/ru/shop/security/config/CommonSecurityConfig.java
+/home/slavko/projects/sources/shop-main/shop-core/security/src/main/java/ru/shop/security/exception/JwtAuthenticationException.java
