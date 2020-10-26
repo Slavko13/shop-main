@@ -1,4 +1,4 @@
-<h1> Web Shop project (Spring boot + RabbitMQ + Vue Js)</h1>
+<h1> Web Shop project (Spring boot(Java 11) + RabbitMQ + Vue Js)</h1>
 <p> Web Shop project - небольшой проектик, цель которого - продемонстрировать мои навыки. Функционал проекта:</p>
  <ul>
     <li> Микросервисная инфраструктура сервисов с помощью брокера сообщений RabbitMQ</li>
