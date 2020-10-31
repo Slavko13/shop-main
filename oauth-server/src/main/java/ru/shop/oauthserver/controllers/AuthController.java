@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import ru.shop.base.globalDTO.JwtAuthenticationResponse;
 import ru.shop.base.globalDTO.LoginDTO;
 import ru.shop.dbtools.models.user.AuthoritiesEnum;
 import ru.shop.dbtools.models.user.Role;
@@ -29,9 +30,9 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/auth/login")
+    @PostMapping("/auth")
     @CrossOrigin
-    public ResponseEntity<?> authenticateUser(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<JwtAuthenticationResponse> authenticateUser(@RequestBody LoginDTO loginDTO) {
         return ResponseEntity.ok(authService.signIn(loginDTO));
     }
 
@@ -41,6 +42,12 @@ public class AuthController {
         roleRepo.save(new Role("ROLE_GUEST", "Обычный недопользователь", Set.of(AuthoritiesEnum.NOT_ACTIVE)));
         roleRepo.save(new Role("ROLE_ADMIN", "Обычный админ", Set.of(AuthoritiesEnum.FULL_ACCESS)));
         roleRepo.save(new Role("ROLE_BUYER", "Обычный покупатель", Set.of(AuthoritiesEnum.BUYER)));
+    }
+
+    @GetMapping("/auth/huth")
+    public String huth() {
+        return "huth";
+
     }
 
 }

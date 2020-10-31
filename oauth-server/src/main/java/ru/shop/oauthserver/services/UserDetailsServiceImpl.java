@@ -22,10 +22,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        UserDetails userDetails = userRepo.findByEmail(email)
+        return userRepo.findByEmail(email)
                 .map(UserPrincipal::new)
                 .orElseThrow(() -> new UsernameNotFoundException("{AbstractUserDetailsAuthenticationProvider.badCredentials}"));
-
-        return userDetails;
     }
+
+
+
 }
