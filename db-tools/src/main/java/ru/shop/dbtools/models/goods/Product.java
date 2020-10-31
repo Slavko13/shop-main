@@ -21,7 +21,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @JsonView(ProductsViews.ShortInfo.class)
     private String name;
     @JsonView(ProductsViews.ShortInfo.class)
@@ -40,7 +40,7 @@ public class Product {
     @ManyToOne
     @JsonIgnore
     @JsonView(ProductsViews.FullInfo.class)
-    @JoinColumn(name="generalProductType_id")
-    private GeneralProductType generalProductType;
+    @JoinColumn(name="productType_id")
+    private ProductType productType;
 
 }

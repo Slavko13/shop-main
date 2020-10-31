@@ -7,6 +7,6 @@ import java.util.Map;
 
 public interface AuthService {
 
-    Map<Object, Object> signIn(LoginDTO loginDTO);
+    JwtAuthenticationResponse signIn(LoginDTO loginDTO);
 
 }
