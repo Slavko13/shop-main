@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
-
 @Data
 public class FilteredGeneralTypeDTO {
 }
