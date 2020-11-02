@@ -1,13 +1,10 @@
 package ru.shop.dbtools.models.goods;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import ru.shop.dbtools.json.views.ProductsViews;
+import lombok.*;
+import ru.shop.dbtools.json.views.ProductSingleViews;
 
 import javax.persistence.*;
 
@@ -17,30 +14,31 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(ProductSingleViews.ShortProductInfo.class)
     private Long id;
-    @JsonView(ProductsViews.ShortInfo.class)
+    @JsonView(ProductSingleViews.ShortProductInfo.class)
     private String name;
-    @JsonView(ProductsViews.ShortInfo.class)
+    @JsonView(ProductSingleViews.ShortProductInfo.class)
     private Double price;
-    @JsonView(ProductsViews.SingleInfo.class)
+    @JsonView(ProductSingleViews.FullSingleProductPageInfo.class)
     private String article;
-    @JsonView(ProductsViews.SingleInfo.class)
+    @JsonView(ProductSingleViews.FullSingleProductPageInfo.class)
     private Integer currentCount;
-    @JsonView(ProductsViews.SingleInfo.class)
+    @JsonView(ProductSingleViews.ShortProductInfo.class)
     private String firmProducer;
-    @JsonView(ProductsViews.SingleInfo.class)
+    @JsonView(ProductSingleViews.FullSingleProductPageInfo.class)
     private String description;
-    @JsonView(ProductsViews.ShortInfo.class)
+    @JsonView(ProductSingleViews.ShortProductInfo.class)
     private Double rating;
 
-    @ManyToOne
-    @JsonIgnore
-    @JsonView(ProductsViews.FullInfo.class)
-    @JoinColumn(name="productType_id")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "productType_id")
+    @JsonBackReference
     private ProductType productType;
 
 }

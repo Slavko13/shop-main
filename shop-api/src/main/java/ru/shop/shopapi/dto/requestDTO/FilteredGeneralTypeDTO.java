@@ -1,4 +1,4 @@
-package ru.shop.shopapi.dto;
+package ru.shop.shopapi.dto.requestDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

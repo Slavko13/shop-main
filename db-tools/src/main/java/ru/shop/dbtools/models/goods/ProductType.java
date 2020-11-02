@@ -1,40 +1,41 @@
 package ru.shop.dbtools.models.goods;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import ru.shop.dbtools.json.views.GeneralTypeViews;
-import ru.shop.dbtools.json.views.ProductTypeViews;
+import lombok.*;
+import ru.shop.dbtools.json.views.ProductsTypeSingleViews;
 
 import javax.persistence.*;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Table
 @Entity
+//@ToString(exclude = "products")
 public class ProductType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(ProductTypeViews.shortInfo.class)
+    @JsonView({ProductsTypeSingleViews.ProductsTypeWithoutProducts.class})
     private Long id;
-    @JsonView(ProductTypeViews.shortInfo.class)
+    @JsonView({ProductsTypeSingleViews.ProductsTypeWithoutProducts.class})
     private String name;
-    @JsonView(ProductTypeViews.fullInfo.class)
+    @JsonView({ProductsTypeSingleViews.ProductsTypeWithoutProducts.class})
     private String description;
 
-    @JsonView(ProductTypeViews.fullInfo.class)
-    @OneToMany(mappedBy = "productType", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "productType", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    @JsonView({ProductsTypeSingleViews.ProductsTypeWithProducts.class})
     private List<Product> products;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name="productTypeCategory_id")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "productTypeCategory_id")
+    @JsonBackReference
     private ProductTypeCategory productTypeCategory;
 
 }
