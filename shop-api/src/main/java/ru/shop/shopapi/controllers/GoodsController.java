@@ -7,15 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.shop.dbtools.json.views.ProductTypeViews;
-import ru.shop.dbtools.json.views.ProductsViews;
-import ru.shop.dbtools.models.goods.GeneralType;
 import ru.shop.dbtools.models.goods.Product;
 import ru.shop.dbtools.models.goods.ProductType;
-import ru.shop.dbtools.models.goods.ProductTypeCategory;
-import ru.shop.shopapi.services.goods.GeneralTypeService;
-import ru.shop.shopapi.services.goods.ProductService;
-import ru.shop.shopapi.services.goods.ProductTypeCategoryService;
 
 import java.util.List;
 

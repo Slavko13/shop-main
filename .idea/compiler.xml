@@ -9,14 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="web" />
         <module name="account-service" />
-        <module name="oauth-server" />
+        <module name="rabbit-mq" />
         <module name="security" />
         <module name="email-server" />
         <module name="shop-api" />
         <module name="email-client" />
         <module name="database" />
         <module name="base" />
-        <module name="rabbit-mq" />
+        <module name="oauth-server" />
         <module name="db-tools" />
       </profile>
     </annotationProcessing>
